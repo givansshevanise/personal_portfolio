@@ -1,0 +1,12 @@
+{
+  "name": "personal-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "start": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "sync:projects": "node scripts/sync-github-projects.js",
+    "lint": "node --check script.js && node --check scripts/sync-github-projects.js",
+    "build": "echo 'Static site: no build step required'"
+  }
+}

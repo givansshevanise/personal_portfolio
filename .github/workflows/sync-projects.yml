@@ -1,0 +1,40 @@
+name: Sync Portfolio Projects
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-projects:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Sync portfolio project data
+        run: npm run sync:projects
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Open pull request for project data changes
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: automation/sync-portfolio-projects
+          title: Update portfolio projects from GitHub
+          body: |
+            This pull request updates `data/projects.json` from GitHub repositories owned by `givansshevanise`.
+
+            Only repositories tagged with `portfolio-ready` are included. Repositories tagged with `featured` are marked as featured in the generated data.
+          commit-message: Update portfolio projects from GitHub
+          add-paths: data/projects.json
