@@ -28,10 +28,16 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
+      - name: Prepare static site
+        run: |
+          mkdir -p _site/data
+          cp index.html styles.css script.js .nojekyll _site/
+          cp data/projects.json _site/data/projects.json
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
