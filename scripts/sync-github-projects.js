@@ -14,7 +14,9 @@ const SKILL_MAP = {
   ec2: "Amazon EC2",
   ecs: "Amazon ECS",
   rds: "Amazon RDS",
+  cloudfront: "CloudFront",
   cloudwatch: "CloudWatch",
+  "cloud-infrastructure": "Cloud Infrastructure",
   docker: "Docker",
   terraform: "Terraform",
   "github-actions": "GitHub Actions",
@@ -22,6 +24,8 @@ const SKILL_MAP = {
   "ci-cd": "CI/CD",
   linux: "Linux",
   monitoring: "Monitoring",
+  deployment: "Deployment Automation",
+  devops: "DevOps",
   "incident-response": "Incident Response",
   "infrastructure-as-code": "Infrastructure as Code"
 };
@@ -97,11 +101,27 @@ async function fetchRepositories() {
 }
 
 function titleFromName(name) {
+  const acronymMap = {
+    api: "API",
+    aws: "AWS",
+    ci: "CI",
+    cd: "CD",
+    cicd: "CI/CD",
+    devops: "DevOps",
+    ec2: "EC2",
+    ecs: "ECS",
+    rds: "RDS",
+    s3: "S3",
+    vpc: "VPC"
+  };
+
   return name
     .replace(/[-_]+/g, " ")
     .replace(/\s+/g, " ")
     .trim()
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+    .split(" ")
+    .map((word) => acronymMap[word.toLowerCase()] || word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 function slugFromName(name) {

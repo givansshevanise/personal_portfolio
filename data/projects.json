@@ -1,1 +1,40 @@
-[]
+[
+  {
+    "title": "AWS Static Site Cloud Lab",
+    "slug": "aws-static-site-cloud-lab",
+    "description": "A beginner-friendly cloud infrastructure project focused on deploying a static website using AWS. The project demonstrates static website hosting, cloud storage, deployment documentation, and the basics of making a site publicly accessible through cloud services.",
+    "githubUrl": "https://github.com/givansshevanise/aws-static-site-cloud-lab",
+    "demoUrl": "",
+    "skills": [
+      "AWS",
+      "Cloud Infrastructure",
+      "CloudFront",
+      "GitHub Actions",
+      "Amazon S3"
+    ],
+    "status": "Complete",
+    "featured": false,
+    "dateCompleted": "2026-07-02",
+    "category": "Cloud Infrastructure",
+    "source": "github"
+  },
+  {
+    "title": "DevOps Health API",
+    "slug": "devops-health-api",
+    "description": "A DevOps-focused API project built to practice health checks, Docker containerization, and deployment automation. The project demonstrates how an application can be prepared for testing, monitoring, and reliable release through a CI/CD workflow.",
+    "githubUrl": "https://github.com/givansshevanise/devops-health-api",
+    "demoUrl": "",
+    "skills": [
+      "CI/CD",
+      "Deployment Automation",
+      "DevOps",
+      "Docker",
+      "GitHub Actions"
+    ],
+    "status": "Complete",
+    "featured": false,
+    "dateCompleted": "2026-07-02",
+    "category": "DevOps Automation",
+    "source": "github"
+  }
+]
